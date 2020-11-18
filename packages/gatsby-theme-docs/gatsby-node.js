@@ -51,21 +51,45 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }, options) => {
 
 exports.createResolvers = ({ createResolvers }) => {
   createResolvers({
-    DocsPage: { 
+    DocsPage: {
       body: {
         type: 'String!',
         resolve: (source, args, context, info) => {
           // Load the resolver for the Mdx type  (body field )
           const type = info.schema.getType('Mdx');
           const mdxFields = type.getFields();
-          const resolver = mdxFields.body.resolve; 
-          const mdxNode = context.nodeModel.getNodeById({ id: source.parent})
-          return resolver(mdxNode, args, context, { 
+          const resolver = mdxFields.body.resolve;
+          const mdxNode = context.nodeModel.getNodeById({ id: source.parent });
+          return resolver(mdxNode, args, context, {
             fieldName: 'body',
-
-          }); 
+          });
+        },
+      },
+    },
+  });
+};
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const result = await graphql(`
+    query {
+      allDocsPage {
+        nodes {
+          id
+          path
         }
       }
     }
+  `);
+  if (result.errors) {
+    reporter.panic('error loading docs', result.errors);
+  }
+  const pages = result.data.allDocsPage.nodes;
+  pages.forEach((page) => {
+    actions.createPage({
+      path: page.path,
+      component: require.resolve('./src/templates/docs-page-template.js'),
+      context: {
+        pageID: page.id,
+      },
+    });
   });
 };
