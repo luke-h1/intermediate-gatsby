@@ -1,9 +1,9 @@
 export default {
   colors: {
-    primary: 'rebecceapurple',
+    primary: 'rebeccapurple',
     secondary: 'indigo',
     muted: 'grey',
-    text: 'pruple',
-    background: '#fff',
+    text: 'purple',
+    background: 'white',
   },
 };
