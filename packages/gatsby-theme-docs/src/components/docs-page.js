@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui';
 
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from './layout';
-
+import TableOfContents from './table-of-contents';
 const DocsPage = ({ page }) => (
   <Layout>
     <h1>{page.title}</h1>
@@ -19,6 +19,7 @@ const DocsPage = ({ page }) => (
     >
       Page updated at {page.updated}
     </p>
+    <TableOfContents />
   </Layout>
 );
 export default DocsPage;
