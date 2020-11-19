@@ -13,8 +13,8 @@
     "gatsby-source-filesystem": "^2.5.0",
     "mdx-utils": "^0.2.0",
     "mkdirp": "^1.0.4",
-    "prism-react-renderer": "^1.0.2",
-    "react-live": "^2.2.1",
+    "prism-react-renderer": "^1.1.1",
+    "react-live": "^2.2.3",
     "theme-ui": "^0.2.44"
   }
 }
