@@ -1,4 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from './layout';
 
@@ -6,7 +8,17 @@ const DocsPage = ({ page }) => (
   <Layout>
     <h1>{page.title}</h1>
     <MDXRenderer>{page.body}</MDXRenderer>
-    <p>Page updated at {page.updated}</p>
+    <p
+      sx={{
+        borderTop: (theme) => `1px solid ${theme.colors.muted}`,
+        color: 'muted',
+        fontSize: 14,
+        mt: 2,
+        pt: 2,
+      }}
+    >
+      Page updated at {page.updated}
+    </p>
   </Layout>
 );
 export default DocsPage;
