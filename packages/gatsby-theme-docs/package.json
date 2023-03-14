@@ -9,7 +9,7 @@
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
     "gatsby-plugin-mdx": "^1.4.0",
-    "gatsby-plugin-theme-ui": "^0.2.43",
+    "gatsby-plugin-theme-ui": "^0.15.5",
     "gatsby-source-filesystem": "^2.5.0",
     "mdx-utils": "^0.2.0",
     "mkdirp": "^1.0.4",
